@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<div class="card p-4 mx-auto" style="max-width: 425px; margin-top: 35px">
+  <h4 class="mb-3" style="color: white">Register</h4>
+
+  <form method="POST">
+    <input
+      name="username"
+      class="form-control mb-2"
+      placeholder="Username"
+      required
+    />
+    <input
+      name="password"
+      type="password"
+      class="form-control mb-3"
+      placeholder="Password"
+      required
+    />
+    <button class="btn btn-success w-100 mb-2">Register</button>
+  </form>
+</div>
+{% endblock %}
