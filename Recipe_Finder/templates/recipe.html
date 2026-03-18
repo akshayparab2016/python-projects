@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <!-- TOP SECTION -->
+  <div class="row mb-4">
+    <!-- IMAGE -->
+    <div class="col-md-5">
+      <img src="{{ image }}" class="img-fluid rounded shadow" />
+    </div>
+
+    <!-- INGREDIENTS -->
+    <div class="col-md-7">
+      <h3 class="mb-3">{{ meal.strMeal.title() }}</h3>
+
+      <a href="/add_favorite/{{ meal.idMeal }}" class="btn btn-success mb-4">
+        ❤️ Add to Favorites
+      </a>
+
+      <h4>🍴 Ingredients</h4>
+      <ul class="list-group list-group-flush">
+        {% for item in ingredients %}
+        <li class="list-group-item bg-transparent text-light">{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <hr />
+
+  <!-- INSTRUCTIONS BELOW -->
+  <div class="row">
+    <div class="col-12">
+      <h4 class="mb-3">📖 Instructions</h4>
+
+      <div
+        class="p-3 rounded"
+        style="background: #2c2f48; font-family: Segoe UI; font-size: 14.9px"
+      >
+        <p>{{ meal.strInstructions | safe}}</p>
+      </div>
+      <br />
+
+      {% if youtube_link %}
+      <a href="{{ youtube_link }}" target="_blank" class="btn btn-danger"
+        >▶ Watch Video</a
+      >
+      {% else %}
+      <a
+        href="https://www.youtube.com/results?search_query={{ meal.strMeal }}"
+        target="_blank"
+        class="btn btn-danger"
+        >▶ Search on YouTube</a
+      >
+      {% endif %}
+    </div>
+  </div>
+</div>
+<br />
+<br />
+{% endblock %}

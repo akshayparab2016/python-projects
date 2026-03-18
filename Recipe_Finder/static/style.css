@@ -1,0 +1,91 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #1f1f2e, #2b2b3d);
+  color: #f1f1f1;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Cards */
+.card {
+  background: #2c2f48;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Image */
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #6c63ff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #5a52e0;
+}
+
+.btn-success {
+  background: #00c9a7;
+  border: none;
+}
+
+.btn-danger {
+  background: #ff4d6d;
+  border: none;
+}
+
+/* Input */
+input.form-control {
+  background: #2c2f48;
+  border: none;
+  color: white;
+}
+
+input::placeholder {
+  color: black;
+}
+
+.search-input {
+  background: black;
+  color: white;
+  border: none;
+}
+
+.search-input::placeholder {
+  color: #aaaaaa;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+ol li {
+  margin-bottom: 10px;
+  line-height: 1;
+}

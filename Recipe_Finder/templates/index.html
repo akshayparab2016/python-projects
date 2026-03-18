@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="text-center mt-5">
+  <h1 class="mb-3">🍲 Recipe Finder</h1>
+  <p class="text-light">Discover recipes from around the world</p>
+
+  <!-- SEARCH BAR (always visible) -->
+  <form
+    action="/search"
+    method="GET"
+    class="mt-4 d-flex justify-content-center"
+  >
+    <input
+      type="text"
+      name="query"
+      class="form-control w-50 me-2 search-input"
+      placeholder="Search by dish or ingredient..."
+      required
+    />
+
+    <button class="btn btn-primary">🔍 Search</button>
+  </form>
+</div>
+
+<!-- RESULTS BELOW SEARCH -->
+{% if meals is defined %}
+<div class="mt-4">
+  <h4 class="mb-4 text-light">Search results for "{{ query }}"</h4>
+
+  {% if meals %}
+  <div class="row g-4">
+    {% for meal in meals %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card h-100">
+        <img src="{{ meal.strMealThumb }}" class="card-img-top" />
+        <div class="card-body d-flex flex-column">
+          <h6 class="text-light">{{ meal.strMeal.title() }}</h6>
+          <div class="d-flex gap-2 flex-wrap">
+            <span class="badge bg-primary">🍽 {{meal.strCategory}}</span>
+            <span class="badge bg-success">🌍 {{meal.strArea}}</span>
+          </div>
+          <br />
+          <div class="mt-auto">
+            <a href="/recipe/{{ meal.idMeal }}" class="btn btn-primary w-100">
+              View Recipe
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div class="alert alert-danger text-center mt-4 w-50">
+    🔍 No recipes found ❌
+  </div>
+  {% endif %}
+</div>
+
+<br />
+<br />
+{% endif %} {% endblock %}
