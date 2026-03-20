@@ -1,0 +1,11 @@
+.gallery {
+  border-radius: 10px;
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.gallery:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
